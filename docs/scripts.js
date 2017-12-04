@@ -65,10 +65,13 @@ $(function () {
             for (var i = 0; i < patterns.length; i++) {
                 out.push('  {');
                 for (var j = 7; j >= 0; j--) {
-                    var byte = patterns[i].substr(2 * j, 2);
-                    byte = parseInt(byte, 16).toString(16);
-                    byte = ('00' + byte).substr(-2);
-                    // byte = byte.split('').reverse().join('');
+                    var byte = patterns[i].substr(2 * j, 2);					
+					byte = parseInt(byte, 16).toString(2);
+                    byte = ('00000000' + byte).substr(-8);
+                    byte = byte.split('').reverse().join('');
+					
+					byte = parseInt(byte, 2).toString(16);
+					byte = ('00' + byte).substr(-2);
                     out.push('0x');
                     out.push(byte);
                     out.push(', ');
@@ -88,10 +91,13 @@ $(function () {
             for (var i = 0; i < patterns.length; i++) {
                 out.push('  [');
                 for (var j = 7; j >= 0; j--) {
-                    var byte = patterns[i].substr(2 * j, 2);
-                    byte = parseInt(byte, 16).toString(16);
-                    byte = ('00' + byte).substr(-2);
-                    // byte = byte.split('').reverse().join('');
+                    var byte = patterns[i].substr(2 * j, 2);					
+					byte = parseInt(byte, 16).toString(2);
+                    byte = ('00000000' + byte).substr(-8);
+                    byte = byte.split('').reverse().join('');
+					
+					byte = parseInt(byte, 2).toString(16);
+					byte = ('00' + byte).substr(-2);
                     out.push('0x');
                     out.push(byte);
                     out.push(', ');
